@@ -4,6 +4,8 @@ import { PostComment } from "../../shared/PostComment/PostComment";
 import { Button } from "../../shared/Button/Button";
 import { useLoadComments } from "../../hooks/useLoadComments";
 
+const MAX_COMMENTS = 5; // максимальное количество комментариев - в респонсе этих данных нет - проверено опытным путем)
+
 export const CommentsSection: FC<{ postId: string }> = ({ postId }) => {
   const { allComments, commentsStatus, loadMoreComments } =
     useLoadComments(postId);
@@ -23,9 +25,11 @@ export const CommentsSection: FC<{ postId: string }> = ({ postId }) => {
         ))}
       </ContentList>
       <div className="load-button-wrapper">
-        <Button onClick={loadMoreComments}>
-          {commentsStatus === "loading" ? "Загрузка..." : "Загрузить еще"}
-        </Button>
+        {allComments.length < MAX_COMMENTS && (
+          <Button onClick={loadMoreComments}>
+            {commentsStatus === "loading" ? "Загрузка..." : "Загрузить еще"}
+          </Button>
+        )}
       </div>
     </section>
   );
