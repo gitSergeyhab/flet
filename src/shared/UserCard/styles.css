@@ -1,0 +1,18 @@
+.user-card {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #f5f5f5;
+}
+
+.user-card__header {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-card__body {
+  margin: 5px 0;
+  font-size: 14px;
+}

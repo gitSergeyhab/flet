@@ -1,0 +1,7 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: 50vh;
+  justify-content: center;
+}
